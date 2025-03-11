@@ -1,0 +1,71 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.search-form {
+    margin: auto;
+    background-color: #fff;
+    width: 60%;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.search-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0069d9;
+}
+
+.vacancy-list {
+    margin-top: 30px;
+}
+
+.vacancy-item {
+    width: 60%;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.vacancy-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.vacancy-info {
+    margin-top: 10px;
+}
+
+.vacancy-info span {
+    font-size: 0.9rem;
+    color: #6c757d;
+    display: block;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вакансии HH</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="text-center mb-4">Поиск вакансий</h1>
+                <div class="search-form">
+                    <form method="POST">
+                        <div class="form-group">
+                            <label>
+                                <input type="text" class="search-input" name="keyword" placeholder="Введите должность или ключевое слово" required>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="text" class="search-input" name="city" placeholder="Введите город" >
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="number" class="search-input" name="salary_from" placeholder="Зарплата от" min="0">
+                            </label>
+                        </div>
+                        <button type="submit" class="search-button btn btn-primary btn-block"><i class="fas fa-search"></i> Искать вакансии</button>
+                    </form>
+                </div>
+
+                {% if error %}
+                    <div class="alert alert-danger mt-3" role="alert">
+                        {{ error }}
+                    </div>
+                {% endif %}
+
+                <div class="vacancy-list mt-4">
+                    <div id="vacancy-container">
+                        {% if vacancies %}
+                            {% for vacancy in vacancies %}
+                                <div class="vacancy-item" data-salary-from="{{ vacancy[5] }}" data-salary-to="{{ vacancy[6] }}" data-area="{{ vacancy[4] }}">
+                                    <h2 class="vacancy-title">{{ vacancy[1] }}</h2>
+                                    <div class="vacancy-info">
+                                        <span>Компания: {{ vacancy[3] }}</span>
+                                        <span>Город: {{ vacancy[4] }}</span>
+                                        <span>Зарплата: {{ vacancy[5] }} - {{ vacancy[6] }} {{ vacancy[7]}}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
