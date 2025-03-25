@@ -1,5 +1,4 @@
 import sqlite3
-
 class Database:
     def __init__(self, db_path):
         self.db_path = db_path
@@ -29,7 +28,10 @@ class Database:
     def insert_vacancies(self, vacancies):
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
-            cursor.executemany("INSERT INTO vacancies VALUES (?,?,?,?,?,?,?,?)", vacancies)
+            cursor.executemany("""
+                INSERT OR REPLACE INTO vacancies (id, title, url, company, area, salary_from, salary_to, currency)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, vacancies)
             conn.commit()
 
     def get_filtered_vacancies(self, city, salary_from):
